@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>创新物理实验设计 · 高中生动手探究 10 例</title>
+<style>
+  :root { --fg:#1f2933; --muted:#52606d; --line:#e4e7eb; --accent:#1e5ac8; --accent2:#0b7a5b; --warn:#b54708; --bg:#ffffff; --code-bg:#f5f7fa; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.75; font-size: 16px;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 32px 20px 90px; }
+  header.site { border-bottom: 2px solid var(--line); padding-bottom: 18px; margin-bottom: 8px; }
+  header.site h1 { margin: 0 0 8px; font-size: 30px; }
+  header.site p { margin: 0; color: var(--muted); }
+  .home-link { display:inline-block; margin-bottom:14px; color:var(--accent); text-decoration:none; font-size:14px; }
+  .home-link:hover { text-decoration:underline; }
+  nav.toc { background: var(--code-bg); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 24px 0; }
+  nav.toc strong { display:block; margin-bottom: 8px; font-size:17px; }
+  nav.toc a { color: var(--accent); text-decoration: none; }
+  nav.toc a:hover { text-decoration: underline; }
+  nav.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 28px; }
+  nav.toc li { margin: 3px 0; break-inside: avoid; }
+  @media (max-width:620px){ nav.toc ol { columns:1; } }
+  section.exp { margin-top: 46px; padding-top: 8px; border-top: 3px dashed var(--line); }
+  h2 { font-size: 24px; border-left: 6px solid var(--accent); padding-left: 12px; margin-top: 30px; }
+  h3 { font-size: 18px; color: var(--fg); margin-top: 26px; border-bottom: 1px solid var(--line); padding-bottom: 5px; }
+  .tags { margin: 6px 0 0; }
+  .tag { display:inline-block; font-size:13px; padding:2px 10px; border-radius:999px; background:#eef4ff; color:var(--accent); margin:2px 6px 2px 0; border:1px solid #d6e4ff; }
+  .tag.disc { background:#eafaf3; color:var(--accent2); border-color:#c7eedd; }
+  pre {
+    background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: 14px 16px; overflow-x: auto; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 14.5px; line-height: 1.65; color: #102a43;
+  }
+  figure { margin: 22px 0; text-align: center; }
+  figure svg { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background:#fff; }
+  figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
+  table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size:15px; }
+  th, td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--code-bg); }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .callout { border-radius:10px; padding:14px 18px; margin:18px 0; }
+  .callout.tip { background:#eef4ff; border:1px solid #d6e4ff; }
+  .callout.warn { background:#fff7ed; border:1px solid #fdba74; }
+  .callout.warn strong, .callout.warn { color:#7c2d12; }
+  .stars { color:#e8a800; letter-spacing:2px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media (max-width:620px){ .grid2 { grid-template-columns:1fr; } }
+  .meta-box { background:#fafbfc; border:1px solid var(--line); border-radius:10px; padding:8px 16px; }
+  footer { margin-top: 70px; border-top: 1px solid var(--line); padding-top: 18px; color: var(--muted); font-size: 14px; }
+  .lead { font-size:17px; }
+  .pillrow { margin:14px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="home-link" href="index.html">← 返回首页（高考物理压轴题详解）</a>
+
+  <header class="site">
+    <h1>创新物理实验设计 · 高中生动手探究 10 例</h1>
+    <p class="lead">把经典竞赛题与教科书场景"实体化"，覆盖力学 · 转动 · 电磁 · 热学 · 光学，外加一条把它们串起来的多米诺连锁装置。震撼、有趣、易做、易懂、直观。</p>
+    <div class="tags">
+      <span class="tag">面向：高一至高三</span>
+      <span class="tag">形式：小组探究 / 创客制作</span>
+      <span class="tag">周期：单课时～项目周</span>
+    </div>
+  </header>
+
+  <div class="callout tip">
+    <strong>怎么用这份方案？</strong> 每个实验都给出统一结构：涉及知识 → 实验原理（纯文本公式）→ 原理图 → 材料清单 → 设备 → 制作方法与步骤 → 数据分析 → 注意事项 → 难度分析 → 合理性分析。
+    建议按"先单点、后集成"的顺序推进：第 1～9 个是独立模块，第 10 个把前面的模块串成一条跨学科连锁反应链（鲁布·戈德堡装置），用于汇报与展评。
+  </div>
+
+  <div class="callout warn">
+    <strong>安全总则（务必先读）。</strong>
+    <ul>
+      <li>强磁铁（钕磁铁）会夹手、吸碎电子设备、误吞危及生命：远离信用卡/手机/起搏器，幼龄人员勿接触。</li>
+      <li>一切发射类装置（火箭球、电磁类）发射方向严禁对人、对窗、对天花板灯具，戴护目镜。</li>
+      <li>涉及交流电、市电、加热丝的项目，必须由教师操作或在教师监督下使用低压安全电源，严禁直接接触市电 220V。</li>
+      <li>加压容器（瓶中云）不超过瓶身额定压力，用塑料瓶不用玻璃瓶；激光笔严禁直射眼睛。</li>
+      <li>每个实验末尾还有"注意事项"，开工前逐条核对。</li>
+    </ul>
+  </div>
+
+  <nav class="toc">
+    <strong>目录（10 个实验）</strong>
+    <ol>
+      <li><a href="#e1">最速降线赛道（力学·变分思想）</a></li>
+      <li><a href="#e2">动量放大"火箭球"发射器（力学·弹性碰撞）</a></li>
+      <li><a href="#e3">耦合摆与共振演示墙（力学·受迫振动）</a></li>
+      <li><a href="#e4">角动量守恒转盘（转动·守恒律）</a></li>
+      <li><a href="#e5">铜管中"缓降"的磁铁（电磁·楞次定律涡流）</a></li>
+      <li><a href="#e6">30 秒单极电机（电磁·安培力）</a></li>
+      <li><a href="#e7">手摇发电机（电磁·法拉第定律）</a></li>
+      <li><a href="#e8">瓶中云（热学·绝热膨胀）</a></li>
+      <li><a href="#e9">人造天空与日落（光学·瑞利散射）</a></li>
+      <li><a href="#e10">跨学科多米诺连锁装置（综合·能量链）</a></li>
+    </ol>
+  </nav>
+
+  <p class="note">说明：下文公式均以纯文本书写（例如 v = 根号(2*g*h)），原理图为内嵌矢量图，可直接打印或投影。</p>
+
+
+
+  <!-- ===================== 实验 1 ===================== -->
+  <section class="exp" id="e1">
+    <h2>实验 1 · 最速降线赛道（Brachistochrone）</h2>
+    <div class="tags">
+      <span class="tag">力学</span><span class="tag">能量守恒</span><span class="tag disc">变分思想</span><span class="tag">惊艳指数 ★★★★★</span>
+    </div>
+
+    <h3>一句话现象</h3>
+    <p>三颗小球从同一起点同时释放、滑到同一终点：走"直线"的不是最快的，走一段"摆线"的反而第一个到——直觉被击碎的瞬间最震撼。</p>
+
+    <h3>涉及知识</h3>
+    <ul>
+      <li>机械能守恒：任意高度处速度只与下降高度有关，v = 根号(2*g*h)。</li>
+      <li>最速降线（速降线）是一条<strong>摆线</strong>，不是直线，也不是圆弧——这是历史上著名的"伯努利挑战"（1696）。</li>
+      <li>变分思想（泛函取极值）的直观启蒙：要让总时间最短，需在"路程"和"加速快慢"之间权衡。</li>
+    </ul>
+
+    <h3>实验原理</h3>
+    <p>下滑总时间是沿轨道的积分：</p>
+    <pre>
+T = ∫ ds / v ，其中 v = 根号(2*g*y)   （y 为已下降的竖直高度）
+
+直线最短，但前段速度小，"省路程却不够快"；
+摆线先陡后缓，前段迅速把重力势能换成速度，"先提速再赶路"，总时间最短。
+
+摆线（滚动圆半径 r，参数 θ）的参数方程：
+    x = r*(θ - sinθ)
+    y = r*(1 - cosθ)
+惊人结论之一（等时性）：在摆线上任意点释放，到达最低点用时相同，
+    T_最低点 = π * 根号(r / g)
+</pre>
+    <figure>
+      <svg viewBox="0 0 720 380" role="img" aria-label="最速降线三轨道对比图">
+        <rect x="0" y="0" width="720" height="380" fill="#ffffff"/>
+        <!-- 起点终点 -->
+        <line x1="70" y1="50" x2="70" y2="340" stroke="#cbd2d9" stroke-width="1" stroke-dasharray="4 4"/>
+        <line x1="650" y1="50" x2="650" y2="340" stroke="#cbd2d9" stroke-width="1" stroke-dasharray="4 4"/>
+        <!-- 轨道：直线 -->
+        <path d="M70,60 L650,300" fill="none" stroke="#1e5ac8" stroke-width="4"/>
+        <!-- 轨道：圆弧（较慢） -->
+        <path d="M70,60 Q330,150 650,300" fill="none" stroke="#b54708" stroke-width="4"/>
+        <!-- 轨道：摆线（最快） -->
+        <path d="M70,60 C150,330 420,340 650,300" fill="none" stroke="#0b7a5b" stroke-width="4"/>
+        <!-- 小球 -->
+        <circle cx="70" cy="60" r="9" fill="#333"/>
+        <circle cx="650" cy="300" r="9" fill="#333"/>
+        <text x="58" y="44" font-size="15" fill="#1f2933">A 起点（同时释放）</text>
+        <text x="600" y="330" font-size="15" fill="#1f2933">B 终点</text>
+        <!-- 图例 -->
+        <rect x="430" y="60" width="270" height="92" fill="#fafbfc" stroke="#e4e7eb" rx="8"/>
+        <line x1="446" y1="84" x2="486" y2="84" stroke="#0b7a5b" stroke-width="4"/><text x="494" y="89" font-size="14" fill="#1f2933">摆线 — 最快（先陡后缓）</text>
+        <line x1="446" y1="110" x2="486" y2="110" stroke="#1e5ac8" stroke-width="4"/><text x="494" y="115" font-size="14" fill="#1f2933">直线 — 路程最短却不最快</text>
+        <line x1="446" y1="136" x2="486" y2="136" stroke="#b54708" stroke-width="4"/><text x="494" y="141" font-size="14" fill="#1f2933">圆弧 — 居中</text>
+        <!-- g 箭头 -->
+        <line x1="40" y1="60" x2="40" y2="120" stroke="#52606d" stroke-width="2" marker-end="url(#arrow1)"/>
+        <text x="20" y="100" font-size="13" fill="#52606d">g</text>
+        <defs><marker id="arrow1" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#52606d"/></marker></defs>
+      </svg>
+      <figcaption>三条同起点、同终点的轨道：绿色摆线最先到达。</figcaption>
+    </figure>
+
+    <h3>材料清单</h3>
+    <table>
+      <tr><th>材料</th><th>规格/数量</th><th>用途</th></tr>
+      <tr><td>透明亚克力板 / PVC 发泡板</td><td>5mm 厚，约 60×40cm ×1</td><td>切槽做轨道底板</td></tr>
+      <tr><td>柔性轨道槽（U 型铝槽或半圆 PVC 线槽）</td><td>3 条，每条 ≥80cm</td><td>嵌出三种曲线</td></tr>
+      <tr><td>钢珠 / 玻璃珠</td><td>直径 12–16mm ×3（同规格）</td><td>滑块，必须完全相同</td></tr>
+      <tr><td>电磁释放门 / 同步挡板</td><td>1 套</td><td>保证三球"同时"释放</td></tr>
+      <tr><td>坐标纸 / 打印的摆线模板</td><td>A2 ×1</td><td>照模板弯曲轨道</td></tr>
+    </table>
+
+    <h3>设备</h3>
+    <ul>
+      <li>手机高速摄像（120/240fps 慢动作）或双光电门 + 计时器；</li>
+      <li>热熔胶枪、美工刀、卷尺、量角器。</li>
+    </ul>
+
+    <h3>制作方法与步骤</h3>
+    <ol>
+      <li>用参数方程 x=r(θ-sinθ), y=r(1-cosθ) 取 r≈12cm，θ 从 0 到 π，打印摆线模板；直线、圆弧用直尺/圆规画。</li>
+      <li>把三条轨道槽按模板固定在底板上，三条<strong>起点等高、终点同点</strong>。</li>
+      <li>装同步释放门：一根可同时抬起的横杆挡住三球，抬杆即同时释放。</li>
+      <li>调水平，消除底板倾斜误差；轨道内壁打磨光滑减小摩擦。</li>
+      <li>慢动作录像，逐帧读出到达终点时刻。</li>
+    </ol>
+
+    <h3>数据分析</h3>
+    <pre>
+记录三条轨道到达终点用时 t_直、t_弧、t_摆，重复 5 次取平均。
+预期：t_摆 < t_弧 < t_直。
+
+进阶定量：摆线落到最低点理论时间 T = π*根号(r/g)。
+取 r=0.12m，g=9.8： T = 3.1416 * 根号(0.12/9.8) ≈ 0.347 s
+把实测最低点时间与理论值比对，误差主要来自摩擦与滚动（钢珠滚动惯量使等效 g 略减小）。
+滚动修正：实心球纯滚动时 v = 根号(10*g*h/7)，相当于把 g 换成 (5/7)g。
+</pre>
+
+    <h3>注意事项</h3>
+    <div class="callout warn">
+      <ul>
+        <li>三球必须同材质、同直径、同质量，否则比较不公平。</li>
+        <li>同步释放是成败关键，释放门要无初速度、无侧向推力。</li>
+        <li>轨道接缝要平滑，缝隙会让球"跳起"产生大误差。</li>
+      </ul>
+    </div>
+
+    <h3>难度分析</h3>
+    <p>制作难度 <span class="stars">★★★☆☆</span>（曲线放样与同步释放是难点）；理解难度 <span class="stars">★★★☆☆</span>（现象易懂，变分原理只需定性）。单课时可演示，做精需半天。</p>
+
+    <h3>合理性分析</h3>
+    <p>把一道 300 多年的经典数学物理难题变成肉眼可见的"赛跑"，认知冲突强、可证伪、可定量，且材料便宜安全。等时性还能延伸到"摆线摆钟"，串联到实验 3 的振动主题。</p>
+  </section>
+
+  <!-- ===================== 实验 2 ===================== -->
+  <section class="exp" id="e2">
+    <h2>实验 2 · 动量放大"火箭球"发射器</h2>
+    <div class="tags">
+      <span class="tag">力学</span><span class="tag">动量守恒</span><span class="tag">弹性碰撞</span><span class="tag disc">竞赛题改造</span><span class="tag">惊艳指数 ★★★★★</span>
+    </div>
+
+    <h3>一句话现象</h3>
+    <p>大球上叠小球一起落地，小球被"弹射"到远高于落点的高度——两球理论上可到 9 倍落差，三球叠放更夸张。这是经典竞赛题"叠球弹跳"的实体版。</p>
+
+    <h3>涉及知识</h3>
+    <ul>
+      <li>一维弹性碰撞的速度交换/放大；动量守恒与动能守恒联立。</li>
+      <li>参考系变换（站在大球上看小球）的巧妙思想。</li>
+    </ul>
+
+    <h3>实验原理</h3>
+    <pre>
+设大球质量 M、小球 m，从高 h 同时下落，落地前速度都为
+    v = 根号(2*g*h)   （方向向下）
+
+大球先触地弹回，速度变为 v（向上）；此刻小球仍以 v 向下。
+两者相对速度为 2v。对 M >> m 的理想极限，弹性碰撞后
+小球速度 ≈ 3v（向上）。
+
+一般弹性碰撞公式（碰前大球 +v、小球 -v）：
+    v_小' = ( (m - M)/(m + M) )*(-v) + ( 2M/(m + M) )*(v)
+          = ( (3M - m)/(M + m) ) * v
+当 M >> m： v_小' → 3v
+
+弹起高度（忽略空气阻力）：
+    H = v_小'^2 / (2*g) = 9 * h   （理想极限）
+三球叠放（质量自下而上递减）理论上更高，但实际受碰撞非理想、空气阻力限制。
+</pre>
+    <figure>
+      <svg viewBox="0 0 720 320" role="img" aria-label="叠球弹跳速度放大原理图">
+        <rect x="0" y="0" width="720" height="320" fill="#ffffff"/>
+        <line x1="40" y1="280" x2="680" y2="280" stroke="#52606d" stroke-width="3"/>
+        <text x="300" y="305" font-size="13" fill="#52606d">地面</text>
+        <!-- 阶段1 下落 -->
+        <text x="70" y="40" font-size="14" fill="#1f2933">① 一起下落 v</text>
+        <circle cx="120" cy="120" r="30" fill="#1e5ac8" opacity="0.85"/>
+        <circle cx="120" cy="78" r="14" fill="#0b7a5b"/>
+        <line x1="120" y1="150" x2="120" y2="190" stroke="#333" stroke-width="2" marker-end="url(#a2)"/>
+        <!-- 阶段2 大球触地反弹 -->
+        <text x="290" y="40" font-size="14" fill="#1f2933">② 大球反弹，相对速度 2v</text>
+        <circle cx="360" cy="245" r="30" fill="#1e5ac8" opacity="0.85"/>
+        <circle cx="360" cy="203" r="14" fill="#0b7a5b"/>
+        <line x1="335" y1="245" x2="335" y2="210" stroke="#1e5ac8" stroke-width="2" marker-end="url(#a2b)"/>
+        <line x1="385" y1="190" x2="385" y2="225" stroke="#0b7a5b" stroke-width="2" marker-end="url(#a2)"/>
+        <!-- 阶段3 小球弹射 -->
+        <text x="560" y="40" font-size="14" fill="#1f2933">③ 小球≈3v 弹射</text>
+        <circle cx="600" cy="248" r="30" fill="#1e5ac8" opacity="0.5"/>
+        <circle cx="600" cy="90" r="14" fill="#0b7a5b"/>
+        <line x1="600" y1="120" x2="600" y2="60" stroke="#0b7a5b" stroke-width="3" marker-end="url(#a2c)"/>
+        <text x="612" y="80" font-size="13" fill="#0b7a5b">最高 ~9h</text>
+        <defs>
+          <marker id="a2" markerWidth="9" markerHeight="9" refX="4" refY="8" orient="auto"><path d="M0,0 L8,0 L4,8 z" fill="#0b7a5b"/></marker>
+          <marker id="a2b" markerWidth="9" markerHeight="9" refX="4" refY="0" orient="auto"><path d="M0,8 L8,8 L4,0 z" fill="#1e5ac8"/></marker>
+          <marker id="a2c" markerWidth="9" markerHeight="9" refX="4" refY="0" orient="auto"><path d="M0,8 L8,8 L4,0 z" fill="#0b7a5b"/></marker>
+        </defs>
+      </svg>
+      <figcaption>大球反弹后与下落的小球"对撞"，把动量集中传给小球。</figcaption>
+    </figure>
+
+    <h3>材料清单</h3>
+    <table>
+      <tr><th>材料</th><th>规格/数量</th><th>用途</th></tr>
+      <tr><td>篮球 / 大弹力球</td><td>1（最重，放最下）</td><td>主反弹体 M</td></tr>
+      <tr><td>网球</td><td>1（中）</td><td>中间层</td></tr>
+      <tr><td>乒乓球 / 小弹力球</td><td>1（最轻，放最上）</td><td>被发射体 m</td></tr>
+      <tr><td>对中导杆（可选）</td><td>细木签 + 中心打孔</td><td>保证同轴叠放</td></tr>
+      <tr><td>高度标尺</td><td>≥3m 卷尺贴墙</td><td>读弹起高度</td></tr>
+    </table>
+
+    <h3>设备</h3>
+    <ul><li>手机慢动作摄像、靠墙刻度尺；空旷高顶场地（室外或体育馆）。</li></ul>
+
+    <h3>制作方法与步骤</h3>
+    <ol>
+      <li>先两球版：网球轻放篮球正上方，对中。</li>
+      <li>站姿固定，从约 1m 高同时释放（手撤离要干脆，避免给上球初速）。</li>
+      <li>慢动作录下弹起高度，重复多次。</li>
+      <li>进阶三球版：篮球-网球-乒乓球同轴叠放（可用导杆对中），发射方向务必朝上无人区。</li>
+    </ol>
+
+    <h3>数据分析</h3>
+    <pre>
+测落差 h 与弹起高度 H，算放大比 H/h。
+两球理论极限 H/h = 9；实际常见 3～5（因质量比有限、碰撞非完全弹性、空气阻力）。
+
+由弹起高度反推小球出射速度：v_小' = 根号(2*g*H)
+用速度比 v_小'/v 检验是否接近理论 (3M - m)/(M + m)。
+做"放大比 vs 质量比"曲线，验证质量比越大、放大越强的趋势。
+</pre>
+
+    <h3>注意事项</h3>
+    <div class="callout warn">
+      <ul>
+        <li>发射方向绝对避开人、灯具、窗户；戴护目镜。</li>
+        <li>三球叠放极易飞偏，先在空旷室外练习。</li>
+        <li>释放瞬间双手同时撤离，避免人为加速上球造成假数据。</li>
+      </ul>
+    </div>
+
+    <h3>难度分析</h3>
+    <p>制作难度 <span class="stars">★☆☆☆☆</span>；理解难度 <span class="stars">★★★☆☆</span>（参考系变换是亮点）。十分钟即可出震撼效果。</p>
+
+    <h3>合理性分析</h3>
+    <p>用三只球还原"叠球弹跳"竞赛题，把抽象的"速度放大 3 倍、高度放大 9 倍"变成看得见的飞跃；成本极低、可重复、可定量，是讲弹性碰撞与参考系的王牌演示。</p>
+  </section>
+
+  <!-- ===================== 实验 3 ===================== -->
+  <section class="exp" id="e3">
+    <h2>实验 3 · 耦合摆与共振演示墙（Barton 摆）</h2>
+    <div class="tags">
+      <span class="tag">力学</span><span class="tag">简谐振动</span><span class="tag">受迫振动</span><span class="tag">共振</span><span class="tag">惊艳指数 ★★★★☆</span>
+    </div>
+
+    <h3>一句话现象</h3>
+    <p>一排长度不同的摆挂在同一根绳上，只摇动其中一个"驱动摆"，结果只有<strong>和它一样长</strong>的那个摆越摆越大，其余的几乎不动——共振被"挑"了出来。</p>
+
+    <h3>涉及知识</h3>
+    <ul>
+      <li>单摆固有周期 T = 2*π*根号(L/g)，固有频率 f = 1/T。</li>
+      <li>受迫振动的稳态振幅在驱动频率≈固有频率时最大（共振），并伴随相位变化。</li>
+    </ul>
+
+    <h3>实验原理</h3>
+    <pre>
+单摆固有频率只由摆长决定：
+    f0 = (1/(2π)) * 根号(g / L)
+
+横挂的支撑绳把驱动摆的振动以"驱动频率 = 驱动摆固有频率"传给所有摆。
+某个摆的固有频率越接近这个驱动频率，其稳态振幅越大：
+    A(f) ∝ 1 / 根号( (f0^2 - f^2)^2 + (γ f)^2 )     （γ 为阻尼系数）
+当 f ≈ f0 时 A 最大 —— 这就是共振。
+等长摆 = 同 f0 = 被"选中"剧烈摆动。
+</pre>
+    <figure>
+      <svg viewBox="0 0 720 320" role="img" aria-label="Barton耦合摆共振演示图">
+        <rect x="0" y="0" width="720" height="320" fill="#ffffff"/>
+        <!-- 两立柱 + 横绳 -->
+        <line x1="60" y1="40" x2="60" y2="300" stroke="#7b8794" stroke-width="6"/>
+        <line x1="660" y1="40" x2="660" y2="300" stroke="#7b8794" stroke-width="6"/>
+        <path d="M60,60 Q360,80 660,60" fill="none" stroke="#52606d" stroke-width="3"/>
+        <!-- 摆：不同长度 -->
+        <!-- 驱动摆（最显眼，红） -->
+        <g stroke="#b54708" stroke-width="2"><line x1="150" y1="68" x2="190" y2="210"/></g>
+        <circle cx="190" cy="214" r="13" fill="#b54708"/>
+        <text x="120" y="245" font-size="13" fill="#b54708">驱动摆</text>
+        <!-- 其它摆 -->
+        <g stroke="#1e5ac8" stroke-width="2">
+          <line x1="250" y1="70" x2="250" y2="150"/>
+          <line x1="330" y1="71" x2="330" y2="185"/>
+          <line x1="410" y1="72" x2="430" y2="214"/>
+          <line x1="490" y1="71" x2="490" y2="170"/>
+          <line x1="570" y1="69" x2="570" y2="130"/>
+        </g>
+        <circle cx="250" cy="153" r="10" fill="#1e5ac8"/>
+        <circle cx="330" cy="188" r="10" fill="#1e5ac8"/>
+        <circle cx="430" cy="218" r="13" fill="#0b7a5b"/>
+        <circle cx="490" cy="173" r="10" fill="#1e5ac8"/>
+        <circle cx="570" cy="133" r="10" fill="#1e5ac8"/>
+        <!-- 共振摆摆动弧线 -->
+        <path d="M395,214 Q430,235 465,214" fill="none" stroke="#0b7a5b" stroke-width="2" stroke-dasharray="3 3"/>
+        <text x="392" y="255" font-size="13" fill="#0b7a5b">等长摆：共振（振幅最大）</text>
+      </svg>
+      <figcaption>仅绿色摆与红色驱动摆等长，被"选中"剧烈摆动。</figcaption>
+    </figure>
+
+    <h3>材料清单</h3>
+    <table>
+      <tr><th>材料</th><th>规格/数量</th><th>用途</th></tr>
+      <tr><td>支撑横绳（较松软的棉线）</td><td>1 根 ~1m</td><td>耦合各摆、传递驱动</td></tr>
+      <tr><td>立柱/门框两点</td><td>2 处</td><td>张紧横绳</td></tr>
+      <tr><td>细线 + 螺帽/橡皮泥球</td><td>6–8 组，长度递变</td><td>不同固有频率的摆</td></tr>
+      <tr><td>稍重的驱动摆</td><td>1（质量略大）</td><td>提供稳定驱动</td></tr>
+    </table>
+
+    <h3>设备</h3>
+    <ul><li>秒表/手机、卷尺、量角器（测振幅角）。</li></ul>
+
+    <h3>制作方法与步骤</h3>
+    <ol>
+      <li>把棉横绳两端固定张紧（略松，便于传递振动）。</li>
+      <li>挂 6–8 个摆，摆长从短到长排列，其中一个与驱动摆<strong>等长</strong>。</li>
+      <li>驱动摆质量略大、摆球略重，使驱动持续稳定。</li>
+      <li>仅拉开驱动摆释放，观察哪个摆逐渐"长大"。</li>
+    </ol>
+
+    <h3>数据分析</h3>
+    <pre>
+测每个摆的摆长 L，算固有频率 f0 = (1/2π)*根号(g/L)。
+稳态后量各摆最大摆幅角 θ_max。
+以横轴 f0、纵轴 θ_max 作图 —— 得到一条在驱动频率处出现尖峰的"共振曲线"。
+峰位应对应等长摆，验证 f≈f0 时振幅最大。
+还可观察相位：远低于共振时同相，远高于时反相，共振处约差 90°。
+</pre>
+
+    <h3>注意事项</h3>
+    <div class="callout warn"><ul>
+      <li>横绳太紧则耦合弱、现象不明显；偏松一点效果更好。</li>
+      <li>初始只给驱动摆能量，其余摆要静止。</li>
+      <li>风、桌面晃动会干扰，选无风环境。</li>
+    </ul></div>
+
+    <h3>难度分析</h3>
+    <p>制作难度 <span class="stars">★★☆☆☆</span>；理解难度 <span class="stars">★★★☆☆</span>。半小时搭好，现象稳定。</p>
+
+    <h3>合理性分析</h3>
+    <p>把"共振"从公式变成可视化的"选择性放大"，直接对应桥梁/秋千/乐器等真实场景；零成本、可定量出共振曲线，是受迫振动一章的最佳实物。</p>
+  </section>
+
+  <!-- ===================== 实验 4 ===================== -->
+  <section class="exp" id="e4">
+    <h2>实验 4 · 角动量守恒转盘</h2>
+    <div class="tags">
+      <span class="tag">转动力学</span><span class="tag">角动量守恒</span><span class="tag">转动惯量</span><span class="tag">惊艳指数 ★★★★☆</span>
+    </div>
+
+    <h3>一句话现象</h3>
+    <p>坐在可自由旋转的转椅上，两手伸开拿哑铃慢慢转，突然收回双臂——转速猛地加快，像花样滑冰收臂加速一样。手持转动的自行车轮还能让人原地转向。</p>
+
+    <h3>涉及知识</h3>
+    <ul>
+      <li>角动量 L = I*ω；无外力矩时 L 守恒。</li>
+      <li>转动惯量 I 随质量分布变化：质量越靠轴，I 越小。</li>
+    </ul>
+
+    <h3>实验原理</h3>
+    <pre>
+无外力矩时角动量守恒：
+    I1 * ω1 = I2 * ω2
+
+收臂使转动惯量从 I1 减小到 I2 (I2 < I1)，故角速度增大：
+    ω2 = (I1 / I2) * ω1
+
+转动动能并不守恒（人做了功）：
+    Ek = (1/2)*I*ω^2 = L^2 / (2*I)
+I 减小 → Ek 增大，多出的能量来自手臂收回时肌肉做的功。
+
+自行车轮陀螺：竖直方向角动量守恒，翻转轮子时人体反向旋转以抵消。
+</pre>
+    <figure>
+      <svg viewBox="0 0 720 300" role="img" aria-label="角动量守恒收臂加速示意图">
+        <rect x="0" y="0" width="720" height="300" fill="#ffffff"/>
+        <!-- 左：伸臂慢转 -->
+        <circle cx="180" cy="160" r="70" fill="none" stroke="#cbd2d9" stroke-width="2" stroke-dasharray="5 5"/>
+        <circle cx="180" cy="160" r="10" fill="#7b8794"/>
+        <line x1="180" y1="160" x2="100" y2="160" stroke="#1e5ac8" stroke-width="5"/>
+        <line x1="180" y1="160" x2="260" y2="160" stroke="#1e5ac8" stroke-width="5"/>
+        <circle cx="95" cy="160" r="12" fill="#b54708"/>
+        <circle cx="265" cy="160" r="12" fill="#b54708"/>
+        <path d="M180,90 a70,70 0 0 1 50,20" fill="none" stroke="#0b7a5b" stroke-width="3" marker-end="url(#a4)"/>
+        <text x="120" y="250" font-size="14" fill="#1f2933">伸臂：I 大、ω 小</text>
+        <!-- 右：收臂快转 -->
+        <circle cx="520" cy="160" r="70" fill="none" stroke="#cbd2d9" stroke-width="2" stroke-dasharray="5 5"/>
+        <circle cx="520" cy="160" r="10" fill="#7b8794"/>
+        <line x1="520" y1="160" x2="485" y2="160" stroke="#1e5ac8" stroke-width="5"/>
+        <line x1="520" y1="160" x2="555" y2="160" stroke="#1e5ac8" stroke-width="5"/>
+        <circle cx="480" cy="160" r="12" fill="#b54708"/>
+        <circle cx="560" cy="160" r="12" fill="#b54708"/>
+        <path d="M520,75 a85,85 0 0 1 78,38" fill="none" stroke="#0b7a5b" stroke-width="4" marker-end="url(#a4)"/>
+        <text x="470" y="250" font-size="14" fill="#1f2933">收臂：I 小、ω 大</text>
+        <text x="320" y="165" font-size="22" fill="#52606d">→</text>
+        <defs><marker id="a4" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b7a5b"/></marker></defs>
+      </svg>
+      <figcaption>收臂使转动惯量减小，角动量守恒迫使转速升高。</figcaption>
+    </figure>
+
+    <h3>材料清单</h3>
+    <table>
+      <tr><th>材料</th><th>规格/数量</th><th>用途</th></tr>
+      <tr><td>可自由旋转的转椅 / 转盘平台</td><td>1（轴承顺滑）</td><td>近似无摩擦力矩</td></tr>
+      <tr><td>哑铃 / 装水的瓶子</td><td>2（等重）</td><td>改变质量分布</td></tr>
+      <tr><td>自行车轮 + 手柄</td><td>1（进阶演示）</td><td>陀螺/进动</td></tr>
+    </table>
+
+    <h3>设备</h3>
+    <ul><li>手机慢动作或手机陀螺仪 App（读角速度）、秒表（数圈计时）。</li></ul>
+
+    <h3>制作方法与步骤</h3>
+    <ol>
+      <li>人坐稳转椅，双脚离地，双手持哑铃水平伸开。</li>
+      <li>助手轻推使其缓慢匀速旋转，记初始转速。</li>
+      <li>受试者把哑铃快速收到胸前，观察并记录转速变化。</li>
+      <li>进阶：手持高速旋转的自行车轮，尝试翻转轮轴，人体会反向转动。</li>
+    </ol>
+
+    <h3>数据分析</h3>
+    <pre>
+用"10 圈所需时间"测前后角速度 ω1、ω2。
+估算 I1、I2（人体+手臂+哑铃，按质点到轴距离 r 估 I≈Σ m r^2）。
+检验 I1*ω1 ≈ I2*ω2（守恒）。
+比较 Ek1 = (1/2)I1 ω1^2 与 Ek2 = (1/2)I2 ω2^2，
+说明 Ek2 > Ek1，差值即收臂时肌肉做的功。
+</pre>
+
+    <h3>注意事项</h3>
+    <div class="callout warn"><ul>
+      <li>系好支撑、旁边有人保护，防止转太快眩晕摔落。</li>
+      <li>哑铃别脱手；自行车轮转速不要过高。</li>
+      <li>转椅轴承越顺滑、误差越小。</li>
+    </ul></div>
+
+    <h3>难度分析</h3>
+    <p>制作难度 <span class="stars">★☆☆☆☆</span>；理解难度 <span class="stars">★★★☆☆</span>。几乎零制作，效果立竿见影。</p>
+
+    <h3>合理性分析</h3>
+    <p>用身体亲历"角动量守恒"，比任何动画都深刻；还能引出"动能不守恒、能量从哪来"的好问题，串到能量守恒主题。安全可控、可定量。</p>
+  </section>
+
+
+
+  <!-- ===================== 实验 5 ===================== -->
+  <section class="exp" id="e5">
+    <h2>实验 5 · 铜管中"缓降"的磁铁（楞次定律涡流）</h2>
+    <div class="tags">
+      <span class="tag">电磁学</span><span class="tag">电磁感应</span><span class="tag">楞次定律</span><span class="tag">涡电流</span><span class="tag">惊艳指数 ★★★★★</span>
+    </div>
+
+    <h3>一句话现象</h3>
+    <p>把一块强磁铁丢进竖直铜管，它不是"啪"地落下，而是像在糖浆里一样<strong>慢悠悠地飘下来</strong>；同样大小的非磁铁块则瞬间坠落。神奇又安静。</p>
+
+    <h3>涉及知识</h3>
+    <ul>
+      <li>法拉第电磁感应定律：变化磁通产生感应电动势。</li>
+      <li>楞次定律：感应电流的效果总是<strong>阻碍</strong>引起它的变化（电磁阻尼）。</li>
+      <li>涡电流、终端速度（阻力与速度成正比）。</li>
+    </ul>
+
+    <h3>实验原理</h3>
+    <pre>
+磁铁下落时穿过铜管，管壁各横截面处磁通在变化：
+    感应电动势 ε = - dΦ/dt
+铜是良导体，管壁中形成闭合"涡电流"，按楞次定律其磁场阻碍磁铁运动，
+表现为一个与速度成正比的电磁阻力：
+    F_阻 ≈ k * v      （k 取决于磁铁强度、管壁电导率与壁厚）
+
+当电磁阻力增大到与重力平衡，磁铁做匀速下落（终端速度）：
+    m*g = k * v_终     →     v_终 = m*g / k
+
+铜管壁越厚、磁铁越强、管电阻率越低，k 越大，下落越慢。
+塑料管不导电，无涡流，磁铁自由落体。
+</pre>
+    <figure>
+      <svg viewBox="0 0 720 340" role="img" aria-label="铜管涡流阻尼磁铁缓降示意图">
+        <rect x="0" y="0" width="720" height="340" fill="#ffffff"/>
+        <!-- 铜管 -->
+        <rect x="250" y="30" width="70" height="280" fill="#fbe7c6" stroke="#b5731f" stroke-width="3"/>
+        <text x="235" y="328" font-size="14" fill="#b5731f">铜管（导电）</text>
+        <!-- 磁铁 -->
+        <rect x="262" y="150" width="46" height="34" fill="#1e5ac8"/>
+        <rect x="262" y="150" width="46" height="17" fill="#c0392b"/>
+        <text x="312" y="160" font-size="12" fill="#c0392b">N</text>
+        <text x="312" y="180" font-size="12" fill="#1e5ac8">S</text>
+        <!-- 涡流环 -->
+        <ellipse cx="285" cy="135" rx="48" ry="12" fill="none" stroke="#0b7a5b" stroke-width="2.5" stroke-dasharray="4 3"/>
+        <ellipse cx="285" cy="200" rx="48" ry="12" fill="none" stroke="#0b7a5b" stroke-width="2.5" stroke-dasharray="4 3"/>
+        <text x="330" y="128" font-size="12" fill="#0b7a5b">涡电流</text>
+        <!-- 力箭头 -->
+        <line x1="285" y1="184" x2="285" y2="230" stroke="#333" stroke-width="3" marker-end="url(#a5d)"/>
+        <text x="292" y="222" font-size="13" fill="#333">mg</text>
+        <line x1="220" y1="167" x2="220" y2="125" stroke="#0b7a5b" stroke-width="3" marker-end="url(#a5u)"/>
+        <text x="170" y="150" font-size="13" fill="#0b7a5b">F阻=kv</text>
+        <!-- 对照塑料管 -->
+        <rect x="500" y="30" width="70" height="280" fill="#eef1f4" stroke="#9aa5b1" stroke-width="3"/>
+        <text x="478" y="328" font-size="14" fill="#7b8794">塑料管（不导电）</text>
+        <rect x="512" y="250" width="46" height="34" fill="#1e5ac8"/>
+        <rect x="512" y="250" width="46" height="17" fill="#c0392b"/>
+        <line x1="535" y1="60" x2="535" y2="240" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a5d)"/>
+        <text x="545" y="150" font-size="12" fill="#c0392b">自由落体</text>
+        <defs>
+          <marker id="a5d" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto"><path d="M0,0 L10,0 L5,9 z" fill="#333"/></marker>
+          <marker id="a5u" markerWidth="10" markerHeight="10" refX="5" refY="1" orient="auto"><path d="M0,9 L10,9 L5,0 z" fill="#0b7a5b"/></marker>
+        </defs>
+      </svg>
+      <figcaption>铜管中涡流产生向上的电磁阻力，磁铁匀速缓降；塑料管中自由落体。</figcaption>
+    </figure>
+
+    <h3>材料清单</h3>
+    <table>
+      <tr><th>材料</th><th>规格/数量</th><th>用途</th></tr>
+      <tr><td>厚壁铜管（或铝管）</td><td>内径略大于磁铁，长 ≥50cm</td><td>产生涡流</td></tr>
+      <tr><td>钕磁铁</td><td>圆柱/圆片，能在管内顺滑下落 ×1–2</td><td>下落磁体</td></tr>
+      <tr><td>同尺寸 PVC/塑料管</td><td>1（对照）</td><td>无涡流对比</td></tr>
+      <tr><td>同体积非磁铁块（铁/铅除外的小块）</td><td>1（对照）</td><td>排除"是不是因为重"</td></tr>
+    </table>
+
+    <h3>设备</h3>
+    <ul><li>秒表/手机慢动作；上下两个光电门 + 计时器（测终端速度更准）。</li></ul>
+
+    <h3>制作方法与步骤</h3>
+    <ol>
+      <li>竖直夹持铜管，下端留软垫接磁铁。</li>
+      <li>磁铁从管口轻放（无初速）下落，秒表计时；重复多次。</li>
+      <li>换塑料管、换非磁性块做对照。</li>
+      <li>进阶：在管不同高度装两个光电门，直接测某段平均速度判断是否已达终端速度。</li>
+    </ol>
+
+    <h3>数据分析</h3>
+    <pre>
+比较铜管 vs 塑料管下落时间（铜管可达数秒，塑料管零点几秒）。
+测终端速度 v_终 = 管长 / 下落时间（若全程近似匀速）。
+改变变量验证模型：
+  - 叠加 2 块磁铁（磁矩增大）→ 下落更慢；
+  - 换更厚壁/更长铜管 → 更慢；
+  - 铝管比铜管略快（电导率低，k 较小）。
+由 m*g = k*v_终 反求阻尼系数 k = m*g / v_终。
+</pre>
+
+    <h3>注意事项</h3>
+    <div class="callout warn"><ul>
+      <li>钕磁铁极强：远离手机、银行卡、机械表、起搏器；小心夹手。</li>
+      <li>磁铁勿吞、勿给低龄者；两块磁铁相吸会猛烈撞击碎裂飞溅。</li>
+      <li>管口加软垫，防磁铁落地碎裂。</li>
+    </ul></div>
+
+    <h3>难度分析</h3>
+    <p>制作难度 <span class="stars">★☆☆☆☆</span>；理解难度 <span class="stars">★★★☆☆</span>。买到铜管和钕磁铁即可，5 分钟见效。</p>
+
+    <h3>合理性分析</h3>
+    <p>这是楞次定律最震撼、最"反常识"的演示，且天然带对照实验设计（铜管 vs 塑料管、磁性 vs 非磁性），非常适合训练控制变量法。与磁悬浮、电磁制动、感应炉同源。</p>
+  </section>
+
+  <!-- ===================== 实验 6 ===================== -->
+  <section class="exp" id="e6">
+    <h2>实验 6 · 30 秒单极电机（最简电动机）</h2>
+    <div class="tags">
+      <span class="tag">电磁学</span><span class="tag">安培力</span><span class="tag">洛伦兹力</span><span class="tag disc">极简创客</span><span class="tag">惊艳指数 ★★★★☆</span>
+    </div>
+
+    <h3>一句话现象</h3>
+    <p>一节电池、一颗钕磁铁、一根铜丝——铜丝突然自己飞快地转起来，没有齿轮没有电路板。号称"世界上最简单的电动机"。</p>
+
+    <h3>涉及知识</h3>
+    <ul>
+      <li>通电导体在磁场中受安培力 F = B*I*L；微观为洛伦兹力 F = q*v×B。</li>
+      <li>力的方向由左手定则/F = I L×B 决定，决定了旋转方向。</li>
+    </ul>
+
+    <h3>实验原理</h3>
+    <pre>
+电池正极—铜丝—磁铁—电池负极构成回路，电流 I 流过铜丝。
+磁铁提供磁场 B（在铜丝处既有竖直分量也有径向分量）。
+电流的径向分量与磁场的轴向分量叉乘，产生<strong>沿切线方向</strong>的安培力：
+    F = I * L × B
+该切向力对转轴产生力矩，使铜丝绕电池轴线持续旋转。
+电流方向或磁极方向反一个，旋转方向反一次（反两个则不变）。
+
+注意：单极电机不需要换向器，因为受力方向始终切向、不随转动反向。
+</pre>
+    <figure>
+      <svg viewBox="0 0 720 320" role="img" aria-label="单极电机结构示意图">
+        <rect x="0" y="0" width="720" height="320" fill="#ffffff"/>
+        <!-- 电池 -->
+        <rect x="320" y="60" width="60" height="150" rx="8" fill="#e0e7ef" stroke="#52606d" stroke-width="2"/>
+        <rect x="338" y="48" width="24" height="14" rx="3" fill="#52606d"/>
+        <text x="345" y="44" font-size="13" fill="#52606d">+</text>
+        <text x="333" y="240" font-size="13" fill="#52606d">电池</text>
+        <!-- 磁铁 -->
+        <ellipse cx="350" cy="232" rx="55" ry="16" fill="#1e5ac8"/>
+        <ellipse cx="350" cy="226" rx="55" ry="16" fill="#c0392b"/>
+        <text x="395" y="232" font-size="12" fill="#1f2933">钕磁铁</text>
+        <!-- 铜丝 -->
+        <path d="M350,46 C420,60 440,180 405,235" fill="none" stroke="#b5731f" stroke-width="4"/>
+        <path d="M350,46 C280,60 260,180 295,235" fill="none" stroke="#b5731f" stroke-width="4"/>
+        <text x="445" y="120" font-size="13" fill="#b5731f">铜丝</text>
+        <!-- 旋转箭头 -->
+        <path d="M250,232 a100,28 0 1 0 200,0" fill="none" stroke="#0b7a5b" stroke-width="3" stroke-dasharray="6 5" marker-end="url(#a6)"/>
+        <text x="300" y="300" font-size="14" fill="#0b7a5b">铜丝绕轴旋转（切向安培力 F=BIL）</text>
+        <!-- B 和 I 标注 -->
+        <line x1="500" y1="232" x2="500" y2="170" stroke="#52606d" stroke-width="2" marker-end="url(#a6u)"/>
+        <text x="508" y="200" font-size="13" fill="#52606d">B</text>
+        <defs>
+          <marker id="a6" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b7a5b"/></marker>
+          <marker id="a6u" markerWidth="10" markerHeight="10" refX="5" refY="1" orient="auto"><path d="M0,9 L10,9 L5,0 z" fill="#52606d"/></marker>
+        </defs>
+      </svg>
+      <figcaption>电流流过铜丝，在磁场中受切向安培力，绕电池轴旋转。</figcaption>
+    </figure>
+
+    <h3>材料清单</h3>
+    <table>
+      <tr><th>材料</th><th>规格/数量</th><th>用途</th></tr>
+      <tr><td>AA 干电池</td><td>1.5V ×1</td><td>电源</td></tr>
+      <tr><td>钕磁铁</td><td>圆片，直径≈电池底径 ×1</td><td>提供磁场 + 接触负极</td></tr>
+      <tr><td>裸铜丝</td><td>较硬，可弯成对称形状 ×1</td><td>转子（载流导体）</td></tr>
+    </table>
+
+    <h3>设备</h3>
+    <ul><li>尖嘴钳（弯铜丝）；无需其它仪器。</li></ul>
+
+    <h3>制作方法与步骤</h3>
+    <ol>
+      <li>磁铁吸在电池负极（平底）上。</li>
+      <li>把铜丝弯成"心形/螺旋形"，顶端做一个小凹点，扣在电池正极凸点上（作为可转动的支点，几乎无摩擦）。</li>
+      <li>调整铜丝两侧下端，让它们轻轻擦到磁铁边缘形成回路。</li>
+      <li>松手——铜丝开始旋转。转不动就微调铜丝接触点和重心对称性。</li>
+    </ol>
+
+    <h3>数据分析</h3>
+    <pre>
+定性为主：
+  - 把磁铁翻面（N/S 互换）→ 转向相反；
+  - 电池正负方向不变而磁极反 → 反向，验证 F = I L×B 的方向规律。
+半定量：用手机慢动作数转速（转/秒），比较不同磁铁强度、不同铜丝长度对转速的影响。
+注意电流较大（近似短路），电池会发热、耗电快，单次演示别超过 1～2 分钟。
+</pre>
+
+    <h3>注意事项</h3>
+    <div class="callout warn"><ul>
+      <li>这是近似短路：电池和铜丝会发热，演示后及时拆开，别长时间运行。</li>
+      <li>钕磁铁注意夹手与吞食风险。</li>
+      <li>铜丝转速快，注意别让飞转的端部扫到眼睛。</li>
+    </ul></div>
+
+    <h3>难度分析</h3>
+    <p>制作难度 <span class="stars">★☆☆☆☆</span>；理解难度 <span class="stars">★★☆☆☆</span>。30 秒能做出来，调平衡需要一点耐心。</p>
+
+    <h3>合理性分析</h3>
+    <p>把"安培力使电机转动"这一核心原理剥到最简，没有任何多余结构干扰理解；零成本、人人可做，是电磁学动手第一课，可自然过渡到换向器、直流电机的讨论。</p>
+  </section>
+
+  <!-- ===================== 实验 7 ===================== -->
+  <section class="exp" id="e7">
+    <h2>实验 7 · 手摇发电机（法拉第电磁感应定律）</h2>
+    <div class="tags">
+      <span class="tag">电磁学</span><span class="tag">电磁感应</span><span class="tag">法拉第定律</span><span class="tag">能量转化</span><span class="tag">惊艳指数 ★★★★☆</span>
+    </div>
+
+    <h3>一句话现象</h3>
+    <p>摇动手柄让磁铁在线圈里飞速进出/旋转，LED 灯随之点亮，摇得越快越亮——机械能"无接触"地变成了电能。和实验 6（电变机械）正好是一对逆过程。</p>
+
+    <h3>涉及知识</h3>
+    <ul>
+      <li>法拉第电磁感应定律：ε = - N * dΦ/dt。</li>
+      <li>动生电动势、能量转化（动能→电能→光/热能）。</li>
+    </ul>
+
+    <h3>实验原理</h3>
+    <pre>
+线圈匝数 N，磁通 Φ = B*A*cosθ。磁铁相对线圈运动使 Φ 变化，产生电动势：
+    ε = - N * dΦ/dt
+
+旋转式（磁铁匀速转，角速度 ω）：
+    ε(t) = N*B*A*ω*sin(ω t)        峰值 ε0 = N*B*A*ω
+所以：匝数 N 越多、磁场 B 越强、转得越快 ω 越大 → 电压越高、灯越亮。
+
+能量角度：手的机械功率 → 电功率 P = ε^2 / R（点亮 LED/电阻发热发光）。
+摇得快时手感更"沉"——因为输出电功率大，需要更多机械功（楞次定律的反作用）。
+</pre>
+    <figure>
+      <svg viewBox="0 0 720 300" role="img" aria-label="手摇发电机原理示意图">
+        <rect x="0" y="0" width="720" height="300" fill="#ffffff"/>
+        <!-- 线圈 -->
+        <ellipse cx="250" cy="150" rx="30" ry="70" fill="none" stroke="#b5731f" stroke-width="3"/>
+        <ellipse cx="265" cy="150" rx="30" ry="70" fill="none" stroke="#b5731f" stroke-width="3"/>
+        <ellipse cx="280" cy="150" rx="30" ry="70" fill="none" stroke="#b5731f" stroke-width="3"/>
+        <text x="225" y="245" font-size="13" fill="#b5731f">线圈（N 匝）</text>
+        <!-- 磁铁旋转 -->
+        <rect x="248" y="120" width="34" height="60" fill="#1e5ac8"/>
+        <rect x="248" y="120" width="34" height="30" fill="#c0392b"/>
+        <path d="M210,90 a70,70 0 0 1 110,0" fill="none" stroke="#0b7a5b" stroke-width="3" marker-end="url(#a7)"/>
+        <text x="150" y="80" font-size="13" fill="#0b7a5b">摇柄使磁铁旋转 ω</text>
+        <!-- 导线 -->
+        <path d="M280,90 H470 V120" fill="none" stroke="#52606d" stroke-width="2"/>
+        <path d="M280,210 H470 V180" fill="none" stroke="#52606d" stroke-width="2"/>
+        <!-- LED -->
+        <circle cx="470" cy="150" r="22" fill="#fff6c2" stroke="#e8a800" stroke-width="3"/>
+        <text x="500" y="155" font-size="13" fill="#e8a800">LED 发光</text>
+        <!-- 光线 -->
+        <g stroke="#e8a800" stroke-width="2">
+          <line x1="470" y1="118" x2="470" y2="100"/>
+          <line x1="498" y1="128" x2="514" y2="116"/>
+          <line x1="442" y1="128" x2="426" y2="116"/>
+        </g>
+        <text x="180" y="285" font-size="14" fill="#1f2933">机械能 → 电能 → 光能（ε = -N dΦ/dt）</text>
+        <defs><marker id="a7" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0b7a5b"/></marker></defs>
+      </svg>
+      <figcaption>摇柄带动磁铁相对线圈运动，感应电动势点亮 LED。</figcaption>
+    </figure>
+
+    <h3>材料清单</h3>
+    <table>
+      <tr><th>材料</th><th>规格/数量</th><th>用途</th></tr>
+      <tr><td>漆包线（带绝缘漆的铜线）</td><td>0.3–0.5mm，绕 200–500 匝</td><td>感应线圈</td></tr>
+      <tr><td>钕磁铁</td><td>1–2 块</td><td>旋转/往复磁源</td></tr>
+      <tr><td>线圈骨架（纸管/塑料管）</td><td>1</td><td>绕线</td></tr>
+      <tr><td>LED（或小灯珠）</td><td>2 只反并联更好</td><td>显示发电（交流双向）</td></tr>
+      <tr><td>手柄 / 小曲柄 + 转轴</td><td>1 套</td><td>驱动磁铁</td></tr>
+    </table>
+
+    <h3>设备</h3>
+    <ul><li>万用表（测交流电压/感应电压）、示波器（可选，看正弦波形最直观）。</li></ul>
+
+    <h3>制作方法与步骤</h3>
+    <ol>
+      <li>在纸管上密绕 200–500 匝漆包线，两端刮去绝缘漆。</li>
+      <li>线圈两端接 LED（两只 LED 反向并联，正反向都亮，证明是交流）。</li>
+      <li>把磁铁固定到可转动的轴/曲柄上，置于线圈端口附近。</li>
+      <li>摇动手柄，观察 LED 随转速变亮；接万用表/示波器看电压。</li>
+    </ol>
+
+    <h3>数据分析</h3>
+    <pre>
+变量探究（控制变量）：
+  - 转速 ω ↑ → 感应电压峰值 ↑（理论 ε0 = N B A ω，应近似线性）；
+  - 匝数 N ↑ → 电压 ↑（成正比）；
+  - 磁铁更强 / 更近 → B、Φ 变化更大 → 电压 ↑。
+用万用表读不同转速下电压，作 "电压 - 转速" 图，验证线性关系。
+示波器可直接显示 ε(t) 近似正弦，频率 = 磁铁转动频率。
+</pre>
+
+    <h3>注意事项</h3>
+    <div class="callout warn"><ul>
+      <li>全部低压自制，<strong>严禁接市电 220V</strong>。</li>
+      <li>漆包线端头务必刮净绝缘漆才能导电。</li>
+      <li>LED 有极性，建议两只反并联以适应交流。</li>
+    </ul></div>
+
+    <h3>难度分析</h3>
+    <p>制作难度 <span class="stars">★★★☆☆</span>（绕线和做转轴稍费时）；理解难度 <span class="stars">★★★☆☆</span>。半天可完成可定量版本。</p>
+
+    <h3>合理性分析</h3>
+    <p>与实验 6 构成"电动机↔发电机"互逆对照，深化能量转化与法拉第定律；可定量做出"电压-转速""电压-匝数"关系，安全、可扩展（手机充电、点灯），工程感强。</p>
+  </section>
+
+
+
+  <!-- ===================== 实验 8 ===================== -->
+  <section class="exp" id="e8">
+    <h2>实验 8 · 瓶中云（绝热膨胀造云）</h2>
+    <div class="tags">
+      <span class="tag">热学</span><span class="tag">绝热过程</span><span class="tag">理想气体</span><span class="tag">相变</span><span class="tag">惊艳指数 ★★★★☆</span>
+    </div>
+
+    <h3>一句话现象</h3>
+    <p>往瓶里打点气、再"啪"地一下放气，瓶中瞬间出现一团白云；再加压，云又消失。亲手在桌上造出一朵云。</p>
+
+    <h3>涉及知识</h3>
+    <ul>
+      <li>气体绝热膨胀做功使内能减小、温度下降。</li>
+      <li>露点、凝结核与相变（水汽→小水滴）。</li>
+      <li>理想气体状态方程与绝热过程关系。</li>
+    </ul>
+
+    <h3>实验原理</h3>
+    <pre>
+瓶内先加压，气体被压缩、温度略升；突然泄压时气体迅速膨胀，
+来不及与外界换热（近似绝热），气体对外做功、内能下降、温度骤降：
+    绝热过程：P * V^γ = 常数 ；  T * V^(γ-1) = 常数   （γ=Cp/Cv，空气≈1.4）
+
+温度降到露点以下，空气中的水汽达到过饱和。
+此时若有"凝结核"（火柴烟尘微粒），水汽就凝结成大量小水滴 → 看见白云。
+重新加压：温度回升、未饱和，水滴蒸发 → 云消失。
+关键三要素：水汽 + 降温（绝热膨胀）+ 凝结核。
+</pre>
+    <figure>
+      <svg viewBox="0 0 720 300" role="img" aria-label="瓶中云绝热膨胀示意图">
+        <rect x="0" y="0" width="720" height="300" fill="#ffffff"/>
+        <!-- 加压瓶 -->
+        <path d="M120,90 h80 v140 a40,16 0 0 1 -80,0 z" fill="#eaf2ff" stroke="#1e5ac8" stroke-width="2"/>
+        <rect x="148" y="58" width="24" height="34" fill="#9aa5b1"/>
+        <text x="110" y="260" font-size="13" fill="#1e5ac8">① 加压（打气，T 略升）</text>
+        <g fill="#1e5ac8"><circle cx="150" cy="150" r="2.5"/><circle cx="170" cy="170" r="2.5"/><circle cx="160" cy="200" r="2.5"/><circle cx="140" cy="185" r="2.5"/><circle cx="180" cy="140" r="2.5"/></g>
+        <!-- 箭头 -->
+        <text x="250" y="160" font-size="26" fill="#52606d">→</text>
+        <text x="232" y="195" font-size="13" fill="#b54708">突然泄压</text>
+        <!-- 出云瓶 -->
+        <path d="M360,90 h80 v140 a40,16 0 0 1 -80,0 z" fill="#eef1f4" stroke="#7b8794" stroke-width="2"/>
+        <g fill="#cbd2d9" opacity="0.95">
+          <circle cx="385" cy="150" r="14"/><circle cx="408" cy="160" r="18"/><circle cx="425" cy="148" r="12"/>
+          <circle cx="395" cy="185" r="16"/><circle cx="420" cy="190" r="13"/><circle cx="375" cy="200" r="11"/>
+        </g>
+        <text x="345" y="260" font-size="13" fill="#7b8794">② 绝热膨胀，T 骤降 → 成云</text>
+        <text x="335" y="280" font-size="12" fill="#52606d">（需凝结核：火柴烟尘）</text>
+        <!-- 温度箭头 -->
+        <line x1="520" y1="120" x2="520" y2="220" stroke="#c0392b" stroke-width="2" marker-end="url(#a8d)"/>
+        <text x="528" y="175" font-size="13" fill="#c0392b">T 下降到露点以下</text>
+        <defs><marker id="a8d" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto"><path d="M0,0 L10,0 L5,9 z" fill="#c0392b"/></marker></defs>
+      </svg>
+      <figcaption>加压后突然泄压，气体绝热膨胀降温，水汽凝结成云。</figcaption>
+    </figure>
+
+    <h3>材料清单</h3>
+    <table>
+      <tr><th>材料</th><th>规格/数量</th><th>用途</th></tr>
+      <tr><td>透明塑料瓶（耐压，如汽水瓶）</td><td>500mL–1.5L ×1</td><td>反应容器（勿用玻璃）</td></tr>
+      <tr><td>带气阀的瓶塞 / 打气筒</td><td>1 套（如打气球的气针塞）</td><td>加压与泄压</td></tr>
+      <tr><td>少量水</td><td>润湿瓶壁即可</td><td>提供水汽</td></tr>
+      <tr><td>火柴</td><td>1 根（点燃后投入产生烟尘）</td><td>凝结核</td></tr>
+    </table>
+    <p class="note">替代加压方案：把瓶口套在打气筒上加压，或挤压瓶身（效果较弱）。最稳妥的是带单向气阀的加压瓶塞。</p>
+
+    <h3>设备</h3>
+    <ul><li>手机摄像；可选数字温度探头（伸入瓶内记录温降）。</li></ul>
+
+    <h3>制作方法与步骤</h3>
+    <ol>
+      <li>瓶里加少量水，摇晃润湿，倒掉多余水（留水汽）。</li>
+      <li>点一根火柴，吹灭后让一缕烟进入瓶中作凝结核，迅速塞紧带气阀的塞子。</li>
+      <li>用打气筒加压几下（瓶子明显变硬）。</li>
+      <li>猛地拔塞/开阀泄压——瓶内立刻出现白云。再加压，云消失。可反复。</li>
+    </ol>
+
+    <h3>数据分析</h3>
+    <pre>
+对照实验（验证三要素）：
+  - 无烟尘（无凝结核）：泄压后云很淡甚至不成云；
+  - 无水汽（干燥瓶）：不成云；
+  - 不泄压（无绝热降温）：不成云。
+半定量：用温度探头记录泄压瞬间瓶内温度下降 ΔT（常见可降几摄氏度）。
+联系真实大气：上升气流绝热膨胀冷却 → 成云致雨，与本实验同理。
+</pre>
+
+    <h3>注意事项</h3>
+    <div class="callout warn"><ul>
+      <li>务必用塑料瓶并控制加压程度，<strong>切勿过压</strong>，防止瓶塞/瓶体爆开伤人；戴护目镜。</li>
+      <li>火柴用火安全，吹灭确认无明火再投烟。</li>
+      <li>泄压时瓶口不要对人。</li>
+    </ul></div>
+
+    <h3>难度分析</h3>
+    <p>制作难度 <span class="stars">★★☆☆☆</span>；理解难度 <span class="stars">★★★☆☆</span>。十几分钟可成，调到稳定出云需多试几次。</p>
+
+    <h3>合理性分析</h3>
+    <p>把抽象的绝热过程和"云怎么形成"变成桌面奇观，天然适合做控制变量对照（水汽/凝结核/降温缺一不可），直接连通天气与气象，跨学科价值高、成本极低。</p>
+  </section>
+
+  <!-- ===================== 实验 9 ===================== -->
+  <section class="exp" id="e9">
+    <h2>实验 9 · 人造天空与日落（瑞利散射）</h2>
+    <div class="tags">
+      <span class="tag">光学</span><span class="tag">散射</span><span class="tag">光的颜色</span><span class="tag">惊艳指数 ★★★★☆</span>
+    </div>
+
+    <h3>一句话现象</h3>
+    <p>一束白光穿过加了几滴牛奶的水：从侧面看，水是<strong>淡蓝色</strong>（像白天的天空）；从正对光源的出口看，光变成<strong>橙红色</strong>（像日落）。一缸水演出一整天的天色。</p>
+
+    <h3>涉及知识</h3>
+    <ul>
+      <li>瑞利散射：微粒对光的散射强度与波长四次方成反比。</li>
+      <li>蓝光波长短被散射强（天空蓝）；透射光被滤掉蓝光、剩红光（朝霞/落日红）。</li>
+    </ul>
+
+    <h3>实验原理</h3>
+    <pre>
+当散射颗粒远小于波长时，散射强度：
+    I_散射 ∝ 1 / λ^4
+
+蓝光 (λ≈450nm) 比红光 (λ≈650nm) 波长短，散射强度比约：
+    (650/450)^4 ≈ 4.3 倍
+所以侧向散射出来的光偏蓝 → "天空是蓝的"。
+而沿原方向透射的光被不断散射掉蓝色成分，越往后越偏红 →
+"夕阳/落日是红的"（光在大气中经过的路径长，相当于水缸加长）。
+牛奶中的微小脂肪/蛋白颗粒就是散射体，模拟大气分子/微粒。
+</pre>
+    <figure>
+      <svg viewBox="0 0 720 280" role="img" aria-label="瑞利散射人造天空日落示意图">
+        <rect x="0" y="0" width="720" height="280" fill="#ffffff"/>
+        <!-- 水槽 -->
+        <rect x="180" y="90" width="360" height="90" fill="#eaf6ff" stroke="#1e5ac8" stroke-width="2"/>
+        <text x="300" y="205" font-size="13" fill="#1e5ac8">牛奶水（散射体）</text>
+        <!-- 手电 -->
+        <rect x="90" y="120" width="80" height="34" rx="6" fill="#52606d"/>
+        <text x="92" y="112" font-size="12" fill="#52606d">白光手电</text>
+        <!-- 透射光：白→橙红 -->
+        <line x1="170" y1="137" x2="180" y2="137" stroke="#f2f2f2" stroke-width="8"/>
+        <line x1="180" y1="137" x2="540" y2="137" stroke="#e8772e" stroke-width="8"/>
+        <circle cx="600" cy="137" r="22" fill="#e8513a"/>
+        <text x="575" y="100" font-size="13" fill="#e8513a">出口：橙红（日落）</text>
+        <!-- 侧向散射蓝 -->
+        <g stroke="#3a86ff" stroke-width="3">
+          <line x1="250" y1="120" x2="240" y2="60"/>
+          <line x1="330" y1="120" x2="330" y2="55"/>
+          <line x1="410" y1="120" x2="420" y2="60"/>
+        </g>
+        <text x="300" y="45" font-size="13" fill="#3a86ff">侧向散射：偏蓝（天空蓝）</text>
+        <text x="150" y="250" font-size="14" fill="#1f2933">I_散射 ∝ 1/λ^4 ：蓝光散得多，红光透得过</text>
+      </svg>
+      <figcaption>侧看偏蓝（天空），正对光源看偏红（落日），同一缸水演示。</figcaption>
+    </figure>
+
+    <h3>材料清单</h3>
+    <table>
+      <tr><th>材料</th><th>规格/数量</th><th>用途</th></tr>
+      <tr><td>透明水槽 / 长方形玻璃缸 / 大号矿泉水瓶</td><td>1（越长越好）</td><td>盛散射介质</td></tr>
+      <tr><td>清水</td><td>装满</td><td>介质</td></tr>
+      <tr><td>牛奶 / 几滴洗洁精</td><td>几滴起（逐滴加）</td><td>散射颗粒</td></tr>
+      <tr><td>强白光手电（聚光好）</td><td>1</td><td>光源（模拟太阳）</td></tr>
+    </table>
+
+    <h3>设备</h3>
+    <ul><li>手机相机（拍照后用取色器读 RGB 做定量）；暗室或遮光环境。</li></ul>
+
+    <h3>制作方法与步骤</h3>
+    <ol>
+      <li>水槽装满清水，关灯遮光。</li>
+      <li>手电从一端水平射入，先看纯水——几乎无色。</li>
+      <li>滴入几滴牛奶并搅匀，逐渐增加。侧面观察泛蓝，出口端观察偏黄→橙→红。</li>
+      <li>调整牛奶浓度和观察角度，找最明显的"蓝天/落日"对比。</li>
+    </ol>
+
+    <h3>数据分析</h3>
+    <pre>
+定量：在侧面与出口各拍一张照片，用取色工具读 RGB。
+  - 侧向散射光：B 分量相对偏高（偏蓝）；
+  - 透射出口光：R 分量相对偏高（偏红）。
+改变水槽长度/牛奶浓度（等效大气厚度），观察出口颜色从黄→红的渐变，
+对应"正午太阳偏白、日出日落偏红"（阳光斜射穿过更厚大气）。
+可定性验证 1/λ^4：蓝色散射明显强于红色。
+</pre>
+
+    <h3>注意事项</h3>
+    <div class="callout warn"><ul>
+      <li>用普通白光手电，<strong>不要用激光笔对眼睛或他人</strong>。</li>
+      <li>牛奶逐滴加，过浓会全白看不出颜色分离。</li>
+      <li>玻璃缸小心磕碰破裂，优先用塑料容器更安全。</li>
+    </ul></div>
+
+    <h3>难度分析</h3>
+    <p>制作难度 <span class="stars">★☆☆☆☆</span>；理解难度 <span class="stars">★★★☆☆</span>。十分钟出效果，调浓度找最佳对比。</p>
+
+    <h3>合理性分析</h3>
+    <p>一次性解释"天为什么蓝、晚霞为什么红"两个生活大问题，视觉冲击强、成本几乎为零，能定量（RGB 取色）也能定性，是光学散射的明星实验。</p>
+  </section>
+
+  <!-- ===================== 实验 10 ===================== -->
+  <section class="exp" id="e10">
+    <h2>实验 10 · 跨学科多米诺连锁装置（鲁布·戈德堡机械）</h2>
+    <div class="tags">
+      <span class="tag">综合集成</span><span class="tag">力学</span><span class="tag">电磁</span><span class="tag">热学</span><span class="tag">光学</span><span class="tag">能量链</span><span class="tag">惊艳指数 ★★★★★</span>
+    </div>
+
+    <h3>一句话现象</h3>
+    <p>触发第一颗小球后，装置自动逐级触发：力学→电磁→光学→热学，最后"造出一朵云"或亮起终点灯。把前 9 个实验的核心串成一条会自己跑完的连锁反应链，是展评和汇报的压轴大戏。</p>
+
+    <h3>涉及知识</h3>
+    <ul>
+      <li>各环节分别复用前面实验的原理；整体强调<strong>能量的逐级转化与传递</strong>。</li>
+      <li>系统工程思想：时序、触发、容错、模块接口。</li>
+    </ul>
+
+    <h3>设计思路（一条建议链）</h3>
+    <pre>
+能量链（每一步触发下一步）：
+
+[起点] 小球沿"最速降线"轨道下滑（实验1）——重力势能→动能
+   ↓ 撞击
+[力学传递] 撞倒多米诺骨牌 / 撞击杠杆，推动一个金属片合上开关
+   ↓ 接通电路
+[电磁A] 接通单极电机/电磁铁（实验6），电磁铁吸开挡销，释放一块钕磁铁
+   ↓ 磁铁落入
+[电磁B] 磁铁落进铜管缓降（实验5）——做"延时器"，约 2~3 秒后落到底
+   ↓ 落到底压下微动开关
+[电磁C] 接通手摇/储能电路点亮激光或强光手电（实验7 的发电或现成电源）
+   ↓ 光束射入
+[光学] 光穿过牛奶水槽（实验9），侧面亮起"蓝天"，光敏电阻在出口接收
+   ↓ 光敏电阻触发继电器
+[热学终点] 接通气泵电磁阀，给"瓶中云"装置泄压（实验8）——终点出现一朵云！
+（也可把终点设为：点亮"成功"LED + 角动量转盘旋转庆祝）
+</pre>
+    <figure>
+      <svg viewBox="0 0 720 360" role="img" aria-label="跨学科多米诺连锁装置流程图">
+        <rect x="0" y="0" width="720" height="360" fill="#ffffff"/>
+        <!-- 节点框函数 -->
+        <g font-size="13">
+          <rect x="20" y="30" width="150" height="46" rx="8" fill="#eef4ff" stroke="#1e5ac8"/><text x="34" y="50" fill="#1e5ac8">①最速降线小球</text><text x="34" y="68" fill="#52606d">势能→动能</text>
+          <rect x="285" y="30" width="150" height="46" rx="8" fill="#eef4ff" stroke="#1e5ac8"/><text x="299" y="50" fill="#1e5ac8">多米诺/杠杆</text><text x="299" y="68" fill="#52606d">合上开关</text>
+          <rect x="550" y="30" width="150" height="46" rx="8" fill="#fff3e9" stroke="#b54708"/><text x="564" y="50" fill="#b54708">⑥电磁铁释放</text><text x="564" y="68" fill="#52606d">放下钕磁铁</text>
+
+          <rect x="550" y="150" width="150" height="46" rx="8" fill="#fff3e9" stroke="#b54708"/><text x="564" y="170" fill="#b54708">⑤铜管缓降</text><text x="564" y="188" fill="#52606d">延时 2-3s</text>
+          <rect x="285" y="150" width="150" height="46" rx="8" fill="#fff3e9" stroke="#b54708"/><text x="299" y="170" fill="#b54708">⑦发电/电源</text><text x="299" y="188" fill="#52606d">点亮激光</text>
+          <rect x="20" y="150" width="150" height="46" rx="8" fill="#fffbe6" stroke="#e8a800"/><text x="34" y="170" fill="#b58a00">⑨牛奶水槽</text><text x="34" y="188" fill="#52606d">光散射+光敏</text>
+
+          <rect x="285" y="270" width="150" height="46" rx="8" fill="#eafaf3" stroke="#0b7a5b"/><text x="299" y="290" fill="#0b7a5b">⑧瓶中云泄压</text><text x="299" y="308" fill="#52606d">终点：出云！</text>
+        </g>
+        <!-- 箭头连线 -->
+        <defs><marker id="aF" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#52606d"/></marker></defs>
+        <g stroke="#52606d" stroke-width="2" fill="none">
+          <line x1="170" y1="53" x2="283" y2="53" marker-end="url(#aF)"/>
+          <line x1="435" y1="53" x2="548" y2="53" marker-end="url(#aF)"/>
+          <line x1="625" y1="76" x2="625" y2="148" marker-end="url(#aF)"/>
+          <line x1="550" y1="173" x2="437" y2="173" marker-end="url(#aF)"/>
+          <line x1="285" y1="173" x2="172" y2="173" marker-end="url(#aF)"/>
+          <line x1="95" y1="196" x2="95" y2="293" marker-end="url(#aF)"/>
+          <line x1="170" y1="293" x2="283" y2="293" marker-end="url(#aF)"/>
+        </g>
+        <text x="40" y="345" font-size="13" fill="#1f2933">力学 → 电磁 → 延时 → 光学 → 热学：一条会自己跑完的能量链</text>
+      </svg>
+      <figcaption>建议连锁流程：每个模块的"输出"成为下一个模块的"触发输入"。</figcaption>
+    </figure>
+
+    <h3>材料清单（在前面模块基础上增加）</h3>
+    <table>
+      <tr><th>材料</th><th>用途</th></tr>
+      <tr><td>多米诺骨牌 / 木块、轻杠杆、滚珠</td><td>力学传递与触发</td></tr>
+      <tr><td>微动开关、簧片开关、继电器（低压）</td><td>各级触发与电气隔离</td></tr>
+      <tr><td>小电磁铁 + 挡销机构</td><td>电控释放磁铁</td></tr>
+      <tr><td>光敏电阻（LDR）+ 比较器/继电器模块</td><td>光信号转电信号</td></tr>
+      <tr><td>低压电源（电池组）、导线、面包板</td><td>供电与连接</td></tr>
+      <tr><td>小气泵 + 电磁阀（或电动泄压机构）</td><td>自动触发瓶中云</td></tr>
+      <tr><td>底板、支架、热熔胶、扎带</td><td>固定与走线</td></tr>
+    </table>
+
+    <h3>设备</h3>
+    <ul><li>万用表、电烙铁（或免焊面包板）、手机摄像（记录连锁全过程）、秒表。</li></ul>
+
+    <h3>制作方法与步骤（分模块、先单测后串联）</h3>
+    <ol>
+      <li>把每个子实验做成独立"模块盒"，各自能稳定工作（单测通过率 ≥ 9/10 再进入集成）。</li>
+      <li>设计统一接口：上一模块输出"机械碰撞 / 闭合开关 / 给电 / 给光"，作为下一模块触发输入。</li>
+      <li>逐段串联调试：先串前两段，跑通后再加一段，避免一次全连查错困难。</li>
+      <li>用"铜管缓降"作天然延时，给后级留出动作时间。</li>
+      <li>全链路彩排，记录失败点并加裕量（如加大撞击力、增加导引轨防跑偏）。</li>
+      <li>正式演示录像，配解说牌标注每一步的物理原理与能量形式。</li>
+    </ol>
+
+    <h3>数据分析</h3>
+    <pre>
+- 可靠性：统计 N 次触发的整链成功率，定位最易失败的环节并改进。
+- 时序：用录像逐帧记录每一级触发的时刻，画"时间轴"，分析铜管延时是否足够。
+- 能量流：标注每一步的能量形式（重力势能→动能→电能→光能→内能/相变），
+  讨论每步的能量损耗（摩擦、电阻发热、散射损失），体会"能量守恒但品质下降"。
+</pre>
+
+    <h3>注意事项</h3>
+    <div class="callout warn"><ul>
+      <li>全部用低压电源，<strong>不接市电</strong>；继电器用于隔离与控制。</li>
+      <li>激光改用普通强光手电更安全；若用激光须固定光路、严禁扫到人眼。</li>
+      <li>钕磁铁、发射/弹跳类环节遵循各自实验的安全须知。</li>
+      <li>集成调试耗时，预留充足时间与备用元件。</li>
+    </ul></div>
+
+    <h3>难度分析</h3>
+    <p>制作难度 <span class="stars">★★★★★</span>（系统集成与调试是最大挑战）；理解难度 <span class="stars">★★★★☆</span>。适合作为项目周/社团长线作品，3–5 人团队 1–2 周。</p>
+
+    <h3>合理性分析</h3>
+    <p>把割裂的知识点缝合成一个有因果、有时序、会"讲故事"的系统，极大激发兴趣与成就感；天然训练工程思维、团队协作与排错能力，是整套方案的高潮与展评亮点。可按学情删减环节，弹性极大。</p>
+  </section>
+
+  <!-- ===================== 教学组织建议 ===================== -->
+  <section class="exp" id="teach">
+    <h2>附 · 教学组织与评价建议</h2>
+
+    <h3>难度与学科一览</h3>
+    <table>
+      <tr><th>#</th><th>实验</th><th>学科</th><th>制作难度</th><th>建议年级</th></tr>
+      <tr><td>1</td><td>最速降线赛道</td><td>力学</td><td>★★★</td><td>高一—高二</td></tr>
+      <tr><td>2</td><td>动量放大火箭球</td><td>力学</td><td>★</td><td>高一—高三</td></tr>
+      <tr><td>3</td><td>耦合摆共振</td><td>力学/振动</td><td>★★</td><td>高一—高二</td></tr>
+      <tr><td>4</td><td>角动量守恒转盘</td><td>转动</td><td>★</td><td>高二—高三</td></tr>
+      <tr><td>5</td><td>铜管涡流缓降</td><td>电磁</td><td>★</td><td>高二—高三</td></tr>
+      <tr><td>6</td><td>单极电机</td><td>电磁</td><td>★</td><td>高一—高三</td></tr>
+      <tr><td>7</td><td>手摇发电机</td><td>电磁</td><td>★★★</td><td>高二—高三</td></tr>
+      <tr><td>8</td><td>瓶中云</td><td>热学</td><td>★★</td><td>高一—高二</td></tr>
+      <tr><td>9</td><td>人造天空</td><td>光学</td><td>★</td><td>高一—高三</td></tr>
+      <tr><td>10</td><td>多米诺连锁装置</td><td>综合</td><td>★★★★★</td><td>高二—高三/社团</td></tr>
+    </table>
+
+    <h3>推进路线建议</h3>
+    <ul>
+      <li><strong>单课时演示</strong>：实验 2、4、5、6、9（几乎零制作、即时震撼），适合新课导入。</li>
+      <li><strong>探究小课题（控制变量、出数据）</strong>：实验 1、3、5、7、8。</li>
+      <li><strong>项目周/社团长线</strong>：实验 10（先分模块做实验 1/5/6/7/8/9，再集成）。</li>
+    </ul>
+
+    <h3>过程性评价量规（建议维度）</h3>
+    <table>
+      <tr><th>维度</th><th>观测点</th></tr>
+      <tr><td>科学原理</td><td>能否说清现象背后的物理规律与公式含义</td></tr>
+      <tr><td>实验设计</td><td>是否设置对照、控制变量、明确自变量与因变量</td></tr>
+      <tr><td>动手与工程</td><td>制作质量、可靠性、排错能力</td></tr>
+      <tr><td>数据与分析</td><td>测量规范、误差来源分析、结论与理论比对</td></tr>
+      <tr><td>创新与表达</td><td>改进点、跨学科联系、汇报与可视化</td></tr>
+    </table>
+
+    <div class="callout tip">
+      <strong>给老师的一句话：</strong> 让学生先"被现象震到"，再追问"为什么"，最后动手"改一个变量看会怎样"——好奇心、原理、探究三步走，这套实验就能把物理思维和动手能力一起带起来。
+    </div>
+  </section>
+
+  <footer>
+    创新物理实验设计 · 面向高中生的动手探究 10 例 ｜ 公式以纯文本书写、原理图为内嵌矢量图，便于打印与投影。<br>
+    本页与《高考物理压轴题详解》同属一个站点，<a href="index.html">返回首页</a>。安全第一，量力而行。
+  </footer>
+
+</div>
+</body>
+</html>
